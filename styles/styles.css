@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #333333;
+}
+
+li {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+    display: inline-block; /* Required for transform to work nicely */
+    transition: all 0.2s ease; /* Makes it grow smoothly instead of snapping */
+}
+
+a:hover {
+    text-decoration: underline;
+    transform: scale(1.1); /* Makes it 10% bigger without moving other text */
+}
+
+a:visited {
+    color: purple;
+}
+
+.resumeListHeading {
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.bold {
+    font-weight: bold;
+}   
+
+.justify {
+    text-align: justify;
+}
+
+
+.professional-bg {
+    background-color: #e6f2ff; 
+}
+
+.box{
+    border: 2px solid #000000;
+    padding: 10px;
+    margin: 10px;
+}
