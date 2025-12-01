@@ -2,19 +2,117 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luke Bell's Home Page</title>
+    <title>Luke Bell | Home</title>
     
-    <link rel="stylesheet" href="styles/resume.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #121212;
+            color: #d4d4d4;
+            font-family: 'Lato', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1, h2, h3, .navbar-brand, .nav-link {
+            font-family: 'Cinzel', serif;
+            color: #C5A966 !important;
+        }
+
+        .navbar {
+            background-color: #1a1a1a;
+            border-bottom: 2px solid #C5A966;
+        }
+        
+        .nav-link:hover {
+            color: #ffffff !important;
+            text-shadow: 0 0 5px #C5A966;
+        }
+
+        /* Hero Section Styling */
+        .hero-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile-hero {
+            border: 4px solid #C5A966;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(197, 169, 102, 0.4);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-hero:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(197, 169, 102, 0.6);
+        }
+
+        .btn-gold {
+            background-color: transparent;
+            border: 2px solid #C5A966;
+            color: #C5A966;
+            font-family: 'Cinzel', serif;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            background-color: #C5A966;
+            color: #121212;
+            box-shadow: 0 0 15px #C5A966;
+        }
+    </style>
 </head>
 <body>
-    <a href="#">Home</a>
-    <a href="html/resume.html">Resume</a>
-    <a href="html/aboutme.html">About Me</a> <br> <br>
-    
-    <h1>Home Page</h1>
-    
-    <img src="images/web_dev_personal.jpg" alt="Luke Bell Photo" width="200" height="200">
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">LUKE BELL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="html/resume.html">Resume</a></li>
+                    <li class="nav-item"><a class="nav-link" href="html/aboutme.html">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="html/scratch.html">Farming Guide</a></li> 
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section container">
+        <img src="images/web_dev_personal.jpg" alt="Luke Bell" class="profile-hero" width="250" height="250">
+        
+        <h1 class="display-3 fw-bold">Luke Bell</h1>
+        <p class="lead text-white mb-4">Aspiring Supply Chain Professional & Data Analyst</p>
+        
+        <div class="d-flex gap-3 justify-content-center">
+            <a href="html/resume.html" class="btn btn-gold">View Resume</a>
+            <a href="html/scratch.html" class="btn btn-gold">Enter The Lands Between</a>
+        </div>
+    </div>
+
+    <footer class="text-center text-secondary py-3">
+        <p>&copy; 2025 Luke Bell</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

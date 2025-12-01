@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elden Ring Rune Calculator</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #C5A966;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .calc-container {
+            background-color: #1a1a1a;
+            border: 2px solid #C5A966;
+            width: 400px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(197, 169, 102, 0.2);
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #333;
+            border: 1px solid #555;
+            color: #fff;
+            font-size: 16px;
+        }
+        button {
+            background-color: #C5A966;
+            color: #000;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #fff;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #fff;
+        }
+        a { color: #888; text-decoration: none; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+
+    <div class="calc-container">
+        <h1>Rune Calculator</h1>
+        <p>Calculate the cost to level up.</p>
+        
+        <label>Current Level:</label><br>
+        <input type="number" id="currentLevel" placeholder="e.g. 50"><br>
+        
+        <label>Target Level:</label><br>
+        <input type="number" id="targetLevel" placeholder="e.g. 60"><br>
+        
+        <button onclick="calculateRunes()">CALCULATE</button>
+        
+        <div id="result"></div>
+        
+        <br><br>
+        <a href="scratch.html">← Back to Farming Guide</a>
+    </div>
+
+    <script>
+        function calculateRunes() {
+            // Grab the values
+            let current = parseInt(document.getElementById('currentLevel').value);
+            let target = parseInt(document.getElementById('targetLevel').value);
+            let resultDiv = document.getElementById('result');
+
+            // Basic Validation
+            if (isNaN(current) || isNaN(target)) {
+                resultDiv.innerHTML = "Please enter valid numbers.";
+                return;
+            }
+            if (target <= current) {
+                resultDiv.innerHTML = "Target level must be higher than current level.";
+                return;
+            }
+
+            // The Math: approximate formula for Levels > 12
+            // Cost = 0.02 * Level^3 + 3.06 * Level^2 + 105.6 * Level - 895
+            let totalCost = 0;
+
+            for (let lvl = current; lvl < target; lvl++) {
+                // Determine cost for THIS specific level
+                // Using a simplified version of the curve for the project
+                let x = ((lvl + 81) - 92) * 0.02;
+                if (x < 0) x = 0;
+                let cost = ((x + 0.1) * ((lvl + 81) ** 2)) + 1;
+                
+                totalCost += Math.floor(cost);
+            }
+
+            // Display
+            resultDiv.innerHTML = "Runes Needed: <br><span style='font-size:1.5em; color:#C5A966'>" + totalCost.toLocaleString() + "</span>";
+        }
+    </script>
+</body>
+</html>
